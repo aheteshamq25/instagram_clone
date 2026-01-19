@@ -1,16 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/responsive_layout/mobile_screen_layout.dart';
-import 'package:instagram_clone/responsive_layout/responsive_layout_screen.dart';
-import 'package:instagram_clone/responsive_layout/web_screen_layout.dart';
+
+import 'package:instagram_clone/screens/login_screen.dart';
+import 'package:instagram_clone/screens/signup_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
         apiKey: 'AIzaSyBcURWd-1qJTCyuH1vr4Xwj3mm6gswCR5Y',
         appId: '1:502747988835:web:9c64f937f459483209c956',
         messagingSenderId: "502747988835",
@@ -37,10 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: mobileBackgroundColor,
       ),
-      home: ResponsiveLayout(
-        webScreenLayout: WebScreenLayout(),
-        mobileScreenLayout: MobileScreenLayout(),
-      ),
+      home: SignupScreen(),
     );
   }
 }
